@@ -1,0 +1,186 @@
+:root {
+  /* Ocean Professional theme */
+  --color-primary: #2563EB;
+  --color-secondary: #F59E0B;
+  --color-success: #F59E0B;
+  --color-error: #EF4444;
+  --color-bg: #f9fafb;
+  --color-surface: #ffffff;
+  --color-text: #111827;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+
+  /* Sidebar specifics (derived) */
+  --sidebar-bg: #0f172a; /* slate-900 like for contrast */
+  --sidebar-text: #e5e7eb;
+
+  /* Lines and borders */
+  --line-color: #e5e7eb;
+  --muted-text: #6b7280;
+
+  /* Controls */
+  --control-bg: #ffffff;
+  --control-border: #e5e7eb;
+  --control-radius: 8px;
+
+  /* Tabs */
+  --tab-active-bg: #e7f0ff;
+  --tab-inactive-bg: #f3f4f6;
+}
+
+/* Reset and base */
+* { box-sizing: border-box; }
+html, body { margin:0; padding:0; height:100%; background: var(--color-bg); color: var(--color-text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+.screen {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+/* Containers */
+.container { position: absolute; }
+.container.horizontal { display: block; } /* we place children absolutely per coordinates */
+.container.vertical { display: block; }
+.component { position: absolute; }
+.button { position: absolute; }
+.text { position: absolute; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Sidebar */
+.sidebar {
+  background: var(--sidebar-bg);
+  box-shadow: var(--shadow-md);
+}
+.sidebar .text, .sidebar span { color: var(--sidebar-text); }
+
+/* Divider line */
+.line {
+  background: var(--line-color);
+}
+
+/* Menu item hover aesthetic */
+.menu-item { border-radius: 8px; }
+.menu-item:hover { background: rgba(255,255,255,0.06); }
+
+/* Badge */
+.badge {
+  position: absolute;
+  background: var(--color-error);
+  color: #fff;
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; line-height: 1; font-weight: 600;
+}
+
+/* Main area */
+.main { background: var(--color-bg); }
+
+/* Top bar */
+.topbar {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--control-border);
+}
+
+/* User button */
+.user-button {
+  background: var(--color-surface);
+  border: 1px solid var(--control-border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+}
+.avatar-circle {
+  position: absolute;
+  left: 0; top: 0; width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+.avatar-text {
+  position: absolute;
+  left: 7.5px; top: 4px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Field (search) */
+.field {
+  background: var(--control-bg);
+  border: 1px solid var(--control-border);
+  border-radius: var(--control-radius);
+  box-shadow: var(--shadow-sm);
+}
+.icon-24 { position: absolute; width: 24px; height: 24px; background: transparent; }
+
+/* Brand button small */
+.button.brand.s {
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+.button.brand.s .button-text { color: #fff; position: absolute; }
+
+/* Tabs */
+.tab {
+  background: var(--tab-active-bg);
+  border: 1px solid #c7d8ff;
+  border-radius: 8px;
+}
+.tab.inactive {
+  background: var(--tab-inactive-bg);
+  border-color: var(--control-border);
+}
+
+/* Table cells */
+.cell { position: absolute; height: 48px; border-bottom: 1px solid var(--control-border); }
+.cell-content { position: absolute; left: 12px; top: 16px; right: 12px; height: 16px; }
+
+.rect {
+  background: #ffffff;
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+}
+
+/* Back button touch area */
+.touch-area {
+  border-radius: 8px;
+  background: transparent;
+}
+
+/* Vector placeholders when no imagePath provided */
+.icon-vector {
+  position: absolute;
+  background: currentColor;
+  color: var(--muted-text);
+  border-radius: 2px;
+}
+
+/* Typography mappings based on JSON refs (approx since design system missing) */
+.typo-70 { font-size: 16px; font-weight: 600; line-height: 26px; color: var(--sidebar-text); }
+.typo-71 { font-size: 14px; font-weight: 500; line-height: 16px; color: var(--sidebar-text); }
+.typo-72 { font-size: 12px; font-weight: 700; line-height: 18px; color: #fff; text-align: center; }
+.typo-73 { font-size: 16px; font-weight: 600; line-height: 16px; color: #fff; }
+.typo-74 { font-size: 14px; font-weight: 600; line-height: 16px; color: var(--color-text); }
+.typo-75 { font-size: 12px; font-weight: 500; line-height: 14px; color: var(--muted-text); }
+.typo-76 { font-size: 14px; font-weight: 500; line-height: 22px; color: var(--muted-text); }
+.typo-77 { font-size: 14px; font-weight: 600; line-height: 14px; color: #fff; text-align: center; }
+.typo-78 { font-size: 14px; font-weight: 600; line-height: 22px; color: var(--color-text); }
+.typo-79 { font-size: 14px; font-weight: 500; line-height: 17px; color: var(--muted-text); }
+.typo-80 { font-size: 18px; font-weight: 700; line-height: 22px; color: var(--color-text); }
+.typo-81 { font-size: 15px; font-weight: 600; line-height: 15px; color: var(--color-text); }
+.typo-82 { font-size: 18px; font-weight: 600; line-height: 28px; color: var(--color-text); text-align: center; }
+.typo-83 { font-size: 14px; font-weight: 500; line-height: 22px; color: var(--color-text); }
+
+/* Utility */
+.overlay-image { position: absolute; pointer-events: none; }
