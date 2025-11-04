@@ -1,0 +1,248 @@
+:root{
+  /* Derived from provided style guide (Ocean Professional) */
+  --color-primary:#2563EB;
+  --color-secondary:#F59E0B;
+  --color-error:#EF4444;
+  --color-surface:#ffffff;
+  --color-bg:#f9fafb;
+  --color-text:#111827;
+  --color-muted:#6B7280;
+  --radius-sm:6px;
+  --radius-md:8px;
+  --radius-lg:12px;
+  --shadow-sm:0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md:0 4px 6px rgba(0,0,0,0.10);
+  --spacing-xs:4px;
+  --spacing-sm:8px;
+  --spacing-md:16px;
+  --spacing-lg:24px;
+  --spacing-xl:32px;
+  --font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+}
+
+*{box-sizing:border-box}
+
+html,body{
+  margin:0;
+  padding:0;
+  background:var(--color-bg);
+  color:var(--color-text);
+  font-family:var(--font-family);
+}
+
+.screen{
+  position:relative;
+  width:1920px;
+  height:1080px;
+  margin:0 auto;
+  overflow:hidden;
+  background:var(--color-surface);
+}
+
+/* Optional reference background (hidden by default for clean render) */
+.screen-bg{
+  position:absolute; left:0; top:0; width:1920px; height:1080px; object-fit:cover; opacity:0; pointer-events:none;
+}
+
+.frame.root{
+  position:relative;
+  width:1920px;
+  height:1080px;
+  display:flex; /* root layout: horizontal */
+  align-items:flex-start;
+}
+
+/* Sidebar */
+.sidebar{
+  position:relative;
+  width:220px; height:1080px;
+  background:#0f172a; /* dark sidebar for contrast */
+  padding:16px 16px 16px 16px;
+  display:flex; flex-direction:column; gap:16px;
+  color:#e5e7eb;
+}
+
+.logo-container{
+  position:relative; width:188px; height:26px;
+  margin-left:0; /* already inside padding */
+}
+
+.logo{
+  position:relative; width:130px; height:26px;
+  margin-left:29px; /* left = 45 - 16 (parent x) */
+  display:flex; align-items:center; gap:8px;
+}
+
+.logo-icon{ width:24px; height:24px; display:flex; align-items:center; justify-content:center; }
+.logo-text{ height:26px; display:flex; align-items:center; }
+.text.company{ font-weight:600; color:#e5e7eb; font-size:16px; line-height:26px; }
+
+.divider{ width:188px; height:1px; background:rgba(255,255,255,0.12); margin-left:0; }
+
+.menu{ position:relative; width:188px; height:auto; display:flex; flex-direction:column; gap:0; }
+.menu-group{ display:flex; flex-direction:column; }
+.menu-item{
+  position:relative;
+  width:188px; height:48px;
+  display:flex; align-items:center; gap:12px;
+  padding:0 8px 0 8px;
+  border-radius:var(--radius-sm);
+  color:#e5e7eb;
+}
+.menu-item:hover{ background:rgba(255,255,255,0.06); }
+.menu-item .menu-icon{ width:24px; height:24px; object-fit:contain; margin-left:8px; }
+.menu-item .menu-label{ font-size:14px; line-height:16px; color:#d1d5db; }
+.menu-item.more .badge{
+  margin-left:auto;
+  display:inline-flex; align-items:center; justify-content:center;
+  width:18px; height:18px; border-radius:9px;
+  background:var(--color-secondary); color:#111827; font-weight:700; font-size:12px;
+}
+.menu-item.more .chev{
+  width:24px; height:24px; margin-left:8px;
+  mask: radial-gradient(circle at 50% 30%, transparent 60%, black 61%) center/100% 100% no-repeat;
+}
+.menu-item.highlight{
+  height:40px; margin-top:8px;
+  background:rgba(37,99,235,0.15);
+  border:1px solid rgba(37,99,235,0.35);
+  color:#fff;
+}
+.menu-item.highlight .menu-label{ color:#fff; }
+
+.menu-spacer{ height:48px; }
+
+/* Main area */
+.main{
+  position:relative; width:1700px; height:1080px;
+  background:var(--color-surface);
+}
+
+/* Top bar */
+.topbar{
+  position:absolute; left:0px; top:0px; width:1700px; height:80px;
+  display:flex; align-items:center; justify-content:flex-end;
+  padding:16px 20px;
+  border-bottom:1px solid #e5e7eb;
+  background:var(--color-surface);
+}
+.group-buttons{ display:flex; align-items:center; gap:12px; }
+.user-button{
+  display:flex; align-items:center; gap:12px;
+  width:129px; height:48px; border:none; background:transparent; cursor:pointer; padding:0;
+}
+.avatar{
+  width:24px; height:24px; border-radius:999px; background:var(--color-primary); color:#fff;
+  display:inline-flex; align-items:center; justify-content:center; font-weight:700;
+}
+.user-info{ display:flex; flex-direction:column; line-height:1; }
+.user-name{ font-size:14px; font-weight:600; color:#111827; }
+.user-role{ font-size:12px; color:#6b7280; }
+
+/* Search field at x: 1351 within main; main origin is (220,-3793) vs child (1351,-3639) => left=(1351-220)=1131; top=( -3639 - (-3793))=154 */
+.search-field{
+  position:absolute; left:1131px; top:154px; width:400px; height:48px;
+  border:1px solid #e5e7eb; border-radius:8px; background:#ffffff;
+  display:flex; align-items:center; gap:8px; padding:0 12px;
+}
+.search-icon{
+  width:24px; height:24px;
+  background: radial-gradient(circle at 30% 30%, #9ca3af 20%, #9ca3af 21% 40%, transparent 41%) no-repeat;
+}
+.search-placeholder{ font-size:14px; color:#9ca3af; }
+
+/* Add Rule button at x:1766 -> left = 1766-220 = 1546; y:-3635 -> top = 158 */
+.btn-brand{
+  position:absolute; left:1546px; top:158px; width:120px; height:40px;
+  background:var(--color-primary); color:#fff; border:none; border-radius:8px;
+  font-size:14px; font-weight:600; cursor:pointer; box-shadow:var(--shadow-sm);
+}
+.btn-brand:hover{ filter:brightness(1.05); }
+.btn-text{ display:inline-block; width:100%; text-align:center; line-height:40px; }
+
+/* Tabs */
+.tabs{
+  position:absolute; left:24px; top:158px; display:flex; gap:8px;
+}
+.tab{
+  width:140px; height:40px; border-radius:8px; display:flex; align-items:center; gap:8px; padding:0 12px;
+  border:1px solid #e5e7eb; background:#fff; color:#111827;
+}
+.tab.active{ border-color:var(--color-primary); background:rgba(37,99,235,0.06); }
+.tab .tab-label{ font-size:14px; }
+
+/* Breadcrumbs block at main local y: -3716 so top = 77; left for block starts at 0 but inner breadcrumbs at x:244 -> left 24 (because inside main, plus we want 24 as per example) */
+.breadcrumbs-block{
+  position:absolute; left:0; top:77px; width:850px; height:74px;
+}
+.breadcrumbs{
+  position:absolute; left:24px; top:16px; height:17px; display:flex; align-items:center; gap:8px; color:#6b7280;
+  font-size:13px;
+}
+.crumb-sep{ color:#9ca3af; }
+.page-title{
+  position:absolute; left:24px; top:38px; margin:0; font-size:18px; font-weight:600; color:#111827;
+}
+
+/* Table header group at x:244 -> left:24; y:-3570 -> top:223 */
+.table-group{
+  position:absolute; left:24px; top:223px; width:1642px; height:172px;
+}
+.row{
+  width:1642px; height:48px; display:flex; align-items:center; background:#fff;
+  border-top:1px solid #e5e7eb; border-bottom:1px solid #e5e7eb;
+}
+.cell{ height:48px; display:flex; align-items:center; padding:0 12px; border-right:1px solid #f3f4f6; }
+.cell:last-child{ border-right:none; }
+.cell-title{ font-size:13px; color:#374151; }
+.with-filter{ position:relative; padding-right:20px; }
+.w-216{ width:216px; }
+.w-274{ width:274px; }
+.w-295{ width:295px; }
+.w-253{ width:253px; }
+.w-312{ width:312px; }
+.w-352{ width:352px; }
+
+.table-divider{
+  position:absolute; left:0; top:48px; width:1642px; height:124px; background:#ffffff; border-bottom:1px solid #e5e7eb;
+}
+
+/* Helper text at y:-3474 => top:319 ; x:927 => left main-relative: 927-220=707 */
+.helper-text{
+  position:absolute; left:707px; top:319px; font-size:18px; color:#111827;
+}
+
+/* Filters on right: blocks at 1430 and 1666 in main coords */
+.filters{
+  position:absolute; right:14px; top:77px; display:flex; gap:16px;
+}
+.filter{
+  width:220px; height:40px; border:1px solid #e5e7eb; border-radius:8px; background:#fff;
+  display:flex; align-items:center; justify-content:space-between; padding:0 12px; color:#374151; font-size:14px;
+}
+.filter .chev-down{
+  width:16px; height:16px;
+  border-right:2px solid #6b7280; border-bottom:2px solid #6b7280;
+  transform:rotate(45deg); margin-right:2px;
+}
+
+/* Back group at x:196,y:-3777 relative to root -> left:196, top:16 */
+.back-group{
+  position:absolute; left:196px; top:16px; width:48px; height:48px; display:flex; align-items:center; justify-content:center;
+}
+.back-group .touch-area{
+  position:absolute; inset:0; border-radius:8px; background:transparent;
+}
+.chevron-left{ position:absolute; width:16px; height:16px; }
+
+@media (max-width:1920px){
+  .screen{ width:100%; height:auto; min-height:1080px; }
+  .frame.root{ width:100%; }
+  .main{ width:calc(100% - 220px); }
+  .topbar{ width:100%; }
+  .table-group, .breadcrumbs-block, .tabs{ transform-origin: top left; }
+  /* simple responsive scaling for inner blocks preserving proportions */
+  @supports (transform: scale(1)){
+    .table-group, .breadcrumbs-block, .tabs, .search-field, .btn-brand, .helper-text { transform: scale(calc((100vw - 220px)/1700)); }
+  }
+}
